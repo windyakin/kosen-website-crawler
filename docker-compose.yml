@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  crawler:
+    image: kosen_website_crawler
+    build: .
+    volumes:
+      - ./screenshots:/usr/src/app/screenshots
