@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "async-file": "^2.0.2",
+    "bluebird": "^3.5.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-plugin-import": "^2.7.0",
