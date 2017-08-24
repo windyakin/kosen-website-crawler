@@ -15,7 +15,10 @@ logger.level = 'debug';
   const folderName = `screenshots/${moment().format('YYYYMMDDhhmmss')}`;
   await File.mkdir(folderName);
 
-  const browser = await Puppeteer.launch();
+  const browser = await Puppeteer.launch({ args: [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+  ] });
   const page = await browser.newPage();
   page.setViewport({ width: 1280, height: 720 });
 
