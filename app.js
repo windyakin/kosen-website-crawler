@@ -1,0 +1,35 @@
+const File = require('async-file');
+const Log4js = require('log4js');
+const Puppeteer = require('puppeteer');
+const moment = require('moment');
+
+const logger = Log4js.getLogger();
+logger.level = 'debug';
+
+(async () => {
+  logger.debug('Loading websites.json...');
+  const websites = JSON.parse(await File.readFile('websites.json'));
+  logger.debug(`Loaded ${websites.length} web sites setting.`);
+
+  const folderName = `screenshots/${moment().format('YYYYMMDDhhmmss')}`;
+  await File.mkdir(folderName);
+
+  const browser = await Puppeteer.launch();
+  const page = await browser.newPage();
+  page.setViewport({ width: 1280, height: 720 });
+
+  await Promise.all(websites.map(async (website) => {
+    const filePath = `${folderName}/${website.name}.png`;
+    logger.info(`Get ${website.name} (${website.url}) ...`);
+    try {
+      await page.goto(website.url);
+      await page.screenshot({ path: filePath, fullPage: true });
+    } catch (e) {
+      logger.error(e);
+      return;
+    }
+    logger.info(`Saved! ${filePath}`);
+  }));
+
+  browser.close();
+})();
