@@ -1,10 +1,230 @@
 [
-    {
-        "name": "tsuyama",
-        "url": "http://www.tsuyama-ct.ac.jp/"
-    },
-    {
-        "name": "tokuyama",
-        "url": "http://www.tokuyama.ac.jp/"
-    }
+  {
+    "name": "函館高専",
+    "url": "http://www.hakodate-ct.ac.jp/"
+  },
+  {
+    "name": "苫小牧高専",
+    "url": "http://www.tomakomai-ct.ac.jp/"
+  },
+  {
+    "name": "釧路高専",
+    "url": "http://www.kushiro-ct.ac.jp/"
+  },
+  {
+    "name": "旭川高専",
+    "url": "http://www.asahikawa-nct.ac.jp/"
+  },
+  {
+    "name": "八戸高専",
+    "url": "http://www.hachinohe-ct.ac.jp/"
+  },
+  {
+    "name": "一関高専",
+    "url": "http://www.ichinoseki.ac.jp/"
+  },
+  {
+    "name": "仙台高専",
+    "url": "http://www.sendai-nct.ac.jp/"
+  },
+  {
+    "name": "秋田高専",
+    "url": "http://www.ipc.akita-nct.ac.jp/"
+  },
+  {
+    "name": "鶴岡高専",
+    "url": "http://www.tsuruoka-nct.ac.jp/"
+  },
+  {
+    "name": "福島高専",
+    "url": "http://www.fukushima-nct.ac.jp/"
+  },
+  {
+    "name": "茨城高専",
+    "url": "http://www.ibaraki-ct.ac.jp/"
+  },
+  {
+    "name": "小山高専",
+    "url": "http://www.oyama-ct.ac.jp/"
+  },
+  {
+    "name": "群馬高専",
+    "url": "http://www.gunma-ct.ac.jp/"
+  },
+  {
+    "name": "木更津高専",
+    "url": "http://www.kisarazu.ac.jp/"
+  },
+  {
+    "name": "東京高専",
+    "url": "http://www.tokyo-ct.ac.jp/"
+  },
+  {
+    "name": "長岡高専",
+    "url": "http://www.nagaoka-ct.ac.jp/"
+  },
+  {
+    "name": "長野高専",
+    "url": "http://www.nagano-nct.ac.jp/"
+  },
+  {
+    "name": "富山高専",
+    "url": "http://www.nc-toyama.ac.jp/c5/"
+  },
+  {
+    "name": "石川高専",
+    "url": "http://www.ishikawa-nct.ac.jp/"
+  },
+  {
+    "name": "福井高専",
+    "url": "http://www.fukui-nct.ac.jp/"
+  },
+  {
+    "name": "岐阜高専",
+    "url": "http://www.gifu-nct.ac.jp/"
+  },
+  {
+    "name": "沼津高専",
+    "url": "http://www.numazu-ct.ac.jp/"
+  },
+  {
+    "name": "豊田高専",
+    "url": "http://www.toyota-ct.ac.jp/"
+  },
+  {
+    "name": "鳥羽商船高専",
+    "url": "http://www.toba-cmt.ac.jp/"
+  },
+  {
+    "name": "鈴鹿高専",
+    "url": "http://www.suzuka-ct.ac.jp/"
+  },
+  {
+    "name": "舞鶴高専",
+    "url": "http://www.maizuru-ct.ac.jp/"
+  },
+  {
+    "name": "明石高専",
+    "url": "http://www.akashi.ac.jp/"
+  },
+  {
+    "name": "奈良高専",
+    "url": "http://www.nara-k.ac.jp/"
+  },
+  {
+    "name": "和歌山高専",
+    "url": "http://www.wakayama-nct.ac.jp/"
+  },
+  {
+    "name": "米子高専",
+    "url": "http://www.yonago-k.ac.jp/"
+  },
+  {
+    "name": "松江高専",
+    "url": "http://www.matsue-ct.ac.jp/"
+  },
+  {
+    "name": "津山高専",
+    "url": "http://www.tsuyama-ct.ac.jp/"
+  },
+  {
+    "name": "広島商船高専",
+    "url": "http://www.hiroshima-cmt.ac.jp/"
+  },
+  {
+    "name": "呉高専",
+    "url": "http://www.kure-nct.ac.jp/"
+  },
+  {
+    "name": "徳山高専",
+    "url": "http://www.tokuyama.ac.jp"
+  },
+  {
+    "name": "宇部高専",
+    "url": "http://www.ube-k.ac.jp/"
+  },
+  {
+    "name": "大島商船高専",
+    "url": "http://www.oshima-k.ac.jp/"
+  },
+  {
+    "name": "阿南高専",
+    "url": "http://www01.anan-nct.ac.jp/"
+  },
+  {
+    "name": "香川高専",
+    "url": "http://www.kagawa-nct.ac.jp/"
+  },
+  {
+    "name": "新居浜高専",
+    "url": "http://www.niihama-nct.ac.jp/"
+  },
+  {
+    "name": "弓削商船高専",
+    "url": "http://www.yuge.ac.jp/"
+  },
+  {
+    "name": "高知高専",
+    "url": "https://www.kochi-ct.ac.jp/"
+  },
+  {
+    "name": "久留米高専",
+    "url": "http://www.kurume-nct.ac.jp/"
+  },
+  {
+    "name": "有明高専",
+    "url": "https://www.ariake-nct.ac.jp/"
+  },
+  {
+    "name": "北九州高専",
+    "url": "http://www.kct.ac.jp/"
+  },
+  {
+    "name": "佐世保高専",
+    "url": "http://www.sasebo.ac.jp/"
+  },
+  {
+    "name": "熊本高専",
+    "url": "http://www.kumamoto-nct.ac.jp/"
+  },
+  {
+    "name": "大分高専",
+    "url": "http://www.oita-ct.ac.jp/"
+  },
+  {
+    "name": "都城高専",
+    "url": "http://www.cc.miyakonojo-nct.ac.jp/"
+  },
+  {
+    "name": "鹿児島高専",
+    "url": "http://www.kagoshima-ct.ac.jp/"
+  },
+  {
+    "name": "沖縄高専",
+    "url": "http://www.okinawa-ct.ac.jp/"
+  },
+  {
+    "name": "高専機構本部",
+    "url": "http:///www.kosen-k.go.jp/"
+  },
+  {
+    "name": "サレジオ高専",
+    "url": "http://www.salesio-sp.ac.jp/"
+  },
+  {
+    "name": "金沢高専",
+    "url": "http://www.kanazawa-tc.ac.jp/"
+  },
+  {
+    "name": "近大高専",
+    "url": "http://www.ktc.ac.jp/"
+  },
+  {
+    "name": "府大高専",
+    "url": "http://www2.ct.osakafu-u.ac.jp/"
+  },
+  {
+    "name": "神戸高専",
+    "url": "http://www.kobe-kosen.ac.jp/"
+  }
 ]
