@@ -1,6 +1,22 @@
 FROM node:8.4.0
 
-WORKDIR /usr/src/app
+# Install Font
+RUN mkdir /noto
+WORKDIR /noto
+RUN apt-get update \
+  && apt-get install -y \
+    udev \
+    unzip \
+    ttf-freefont \
+  && rm -rf /var/lib/apt/lists/*
+ADD https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip .
+RUN unzip NotoSansCJKjp-hinted.zip \
+  && mkdir -p /usr/share/fonts/noto \
+  && cp *.otf /usr/share/fonts/noto \
+  && chmod 644 -R /usr/share/fonts/noto/ \
+  && fc-cache -fv
+WORKDIR /
+RUN rm -rf /noto
 
 # Dependencies package
 # https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
@@ -45,6 +61,8 @@ RUN apt-get update \
     xdg-utils \
     wget \
   && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/app
 
 COPY package.json .
 
