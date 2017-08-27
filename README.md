@@ -4,7 +4,7 @@
 
 ## Getting started
 
-need node veersion >= 7.10.0
+need node version >= 7.10.0
 
 ```
 yarn install
