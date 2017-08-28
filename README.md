@@ -11,7 +11,7 @@ yarn install
 yarn start
 ```
 
-## How to change crawl site?
+## How to change crawling sites?
 
 websites.json の内容を変更すると高専のサイト以外も取得することができます。
 
