@@ -4,14 +4,14 @@
 
 ## Getting started
 
-need node veersion >= 7.10.0
+required node version >= 7.10.0
 
 ```
 yarn install
 yarn start
 ```
 
-## How to change crawl site?
+## How to change crawling sites?
 
 websites.json の内容を変更すると高専のサイト以外も取得することができます。
 
