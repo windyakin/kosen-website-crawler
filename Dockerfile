@@ -8,7 +8,7 @@ RUN apt-get update \
     udev \
     unzip \
     ttf-freefont \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 ADD https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip .
 RUN unzip NotoSansCJKjp-hinted.zip \
   && mkdir -p /usr/share/fonts/noto \
@@ -16,7 +16,10 @@ RUN unzip NotoSansCJKjp-hinted.zip \
   && chmod 644 -R /usr/share/fonts/noto/ \
   && fc-cache -fv
 WORKDIR /
-RUN rm -rf /noto
+RUN rm -rf /noto \
+  && apt-get --force-yes remove -y --purge \
+    unzip \
+    ttf-freefont
 
 # Dependencies package
 # https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
@@ -60,7 +63,7 @@ RUN apt-get update \
     lsb-release \
     xdg-utils \
     wget \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 WORKDIR /usr/src/app
 
