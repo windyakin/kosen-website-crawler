@@ -6,4 +6,8 @@ services:
     build: .
     volumes:
       - ./screenshots:/usr/src/app/screenshots
+      # NOTE: macOS の /etc/localtime はマウントしてもタイムゾーンを変更できない
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TZ=Asia/Tokyo
     shm_size: 256m
