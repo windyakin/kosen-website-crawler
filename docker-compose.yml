@@ -6,3 +6,4 @@ services:
     build: .
     volumes:
       - ./screenshots:/usr/src/app/screenshots
+    shm_size: 256m
