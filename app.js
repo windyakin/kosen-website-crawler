@@ -12,10 +12,13 @@ logger.level = 'debug';
   const websites = JSON.parse(await File.readFile('websites.json'));
   logger.debug(`Loaded ${websites.length} web sites setting.`);
 
-  const folderName = `screenshots/${moment().format('YYYYMMDDhhmmss')}`;
+  const folderName = `screenshots/${moment().format('YYYYMMDDHHmmss')}`;
   await File.mkdir(folderName);
 
-  const browser = await Puppeteer.launch();
+  const browser = await Puppeteer.launch({ args: [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+  ] });
   const page = await browser.newPage();
   page.setViewport({ width: 1280, height: 720 });
 
