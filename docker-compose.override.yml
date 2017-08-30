@@ -4,3 +4,4 @@ services:
   crawler:
     volumes:
       - ./app.js:/usr/src/app/app.js
+      - ./websites.json:/usr/src/app/websites.json
