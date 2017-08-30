@@ -19,19 +19,22 @@ logger.level = 'debug';
   const page = await browser.newPage();
   page.setViewport({ width: 1280, height: 720 });
 
-  await new Promise(resolve => resolve(websites))
-    .each(async (website) => {
-      const filePath = `${folderName}/${website.name}.png`;
-      logger.info(`Get ${website.name} (${website.url}) ...`);
-      try {
-        await page.goto(website.url);
-        await page.screenshot({ path: filePath, fullPage: true });
-      } catch (e) {
-        logger.error(e);
-        return;
-      }
-      logger.info(`Saved! ${filePath}`);
-    });
+  await new Promise(resolve => resolve(
+    websites,
+    Array.from(Array(websites.length).keys()),
+  )).each(async (website, index) => {
+    const fileIndex = (index + 1).toString().padStart(2, '0');
+    const filePath = `${folderName}/${fileIndex}_${website.name}.png`;
+    logger.info(`Get ${website.name} (${website.url}) ...`);
+    try {
+      await page.goto(website.url);
+      await page.screenshot({ path: filePath, fullPage: true });
+    } catch (e) {
+      logger.error(e);
+      return;
+    }
+    logger.info(`Saved! ${filePath}`);
+  });
 
   browser.close();
 })();
