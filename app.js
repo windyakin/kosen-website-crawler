@@ -1,5 +1,6 @@
 const Promise = require('bluebird');
 const File = require('async-file');
+const os = require('os');
 const Log4js = require('log4js');
 const Puppeteer = require('puppeteer');
 const moment = require('moment');
@@ -15,10 +16,9 @@ logger.level = 'debug';
   const folderName = `screenshots/${moment().format('YYYYMMDDHHmmss')}`;
   await File.mkdir(folderName);
 
-  const browser = await Puppeteer.launch({ args: [
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
-  ] });
+  const puppeteerParam = (os.platform() === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : []);
+
+  const browser = await Puppeteer.launch({ args: puppeteerParam });
   const page = await browser.newPage();
   page.setViewport({ width: 1280, height: 720 });
 
