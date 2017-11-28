@@ -2,7 +2,7 @@ version: '3'
 
 services:
   crawler:
-    image: kosen_website_crawler
+    image: windyakin/kosen-website-crawler:latest
     build: .
     volumes:
       # NOTE: macOS の /etc/localtime はマウントしてもタイムゾーンを変更できない
