@@ -1,27 +1,26 @@
 FROM node:8-slim
 
 # Install Font
-RUN mkdir /noto
-WORKDIR /noto
-RUN apt-get update \
+RUN mkdir /noto \
+  && apt-get update \
   && apt-get install -y --no-install-recommends \
     udev \
     unzip \
-    ttf-freefont \
     fontconfig \
-  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-ADD https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip .
-RUN unzip NotoSansCJKjp-hinted.zip \
+    ca-certificates \
+  && wget -q -O /noto/noto.zip https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
+  && unzip -d /noto/fonts /noto/noto.zip \
   && mkdir -p /usr/share/fonts/noto \
-  && cp *.otf /usr/share/fonts/noto \
+  && cp /noto/fonts/*.otf /usr/share/fonts/noto \
   && chmod 644 -R /usr/share/fonts/noto/ \
-  && fc-cache -fv
-WORKDIR /
-RUN rm -rf /noto \
+  && fc-cache -fv \
+  && rm -rf /noto \
   && apt-get --force-yes remove -y --purge \
     unzip \
-    ttf-freefont \
-    fontconfig
+    fontconfig \
+    ca-certificates \
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 # Dependencies package
 # https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
