@@ -4,6 +4,17 @@
 
 ## Getting started
 
+### Running on Docker
+
+* Now available on Docker Hub!
+  * [windyakin/kosen-website-crawler](https://hub.docker.com/r/windyakin/kosen-website-crawler/)
+
+```
+docker-compose up -d
+```
+
+### Running on local machine
+
 required node version >= 7.10.0
 
 ```
