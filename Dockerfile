@@ -4,7 +4,7 @@ FROM node:8-slim
 RUN mkdir /noto
 WORKDIR /noto
 RUN apt-get update \
-  && apt-get install -y \
+  && apt-get install -y --no-install-recommends \
     udev \
     unzip \
     ttf-freefont \
@@ -26,7 +26,7 @@ RUN rm -rf /noto \
 # Dependencies package
 # https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
 RUN apt-get update \
-  && apt-get install -y \
+  && apt-get install -y --no-install-recommends \
     gconf-service \
     libasound2 \
     libatk1.0-0 \
