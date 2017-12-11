@@ -1,5 +1,7 @@
 # Kosen Website Crawler
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/windyakin/kosen-website-crawler.svg)](https://greenkeeper.io/)
+
 高専のウェブサイトをクロールしてスクリーンショットを保存します。
 
 ## Getting started
