@@ -17,7 +17,6 @@ before_install:
   - curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-
 before_script:
   - docker-compose -f docker-compose.test.yml build --pull crawler
   - docker-compose -f docker-compose.test.yml pull otonokizaka uranohoshi
@@ -28,3 +27,7 @@ script:
 
 after_script:
   - docker-compose -f docker-compose.test.yml down
+
+notifications:
+  slack:
+    secure: O1tCfPsmyS1UKK5cAha7pXPXX4FFYoOvj26vaW+6xvqVNWqBTOp0t8OWBYZj0Q4r7zoL41r0L0txXIs12DSwpb+O/yGGwD96sSlAqMN8JHGsf0HzgASqMXNrF0KCcNHpaxdS8VcM2pJfWzAlmaz4At9GQqTrTJixa8Ybrel6H8S+n8ZV+p23BqWnYTALRxTaO4tn6KU2EVFbQgyGsO7GiQsyJLwpiMAo4DI7c1WAed6/NVnfhMuFeMKPrT0Q/JFjn23BOX6oRvUxFKow/HIxdMaHu49TJl+IUTFM0pwigtFRI1eKJK1ts+ahLeLJSSbY/p81o9a++5vLz6CLAAxofbUWWa5p1C78smvAyb4yZHT7UaAkV2QSpEZ0kmeEfV5eftUWgK173/NAGK+VVNO7UvejvXI20eUr/NJcWyRB2SapaNb6SOuRM6KCyBF6WmmQznPkCNMFcEgJQeSjTsLxkcYMoO1FUkEws8HqO7QTCB9Ta13skZdmpYhDfdXzp8ddSIZR7bnMI5oWebCBFeLwhreE02mIYdOEThOAxRmWTV3XM5oCRUiMbSws4C5YRGoSBzvsjjRn4nxalhOM9ogMWdLCNWio/BvbkxAmvAzP1e0N40AN3eUiGcf5ORbectPJDqH0gQMs6aoT3wO1FDjv+avlzclvgRjjeE2TL65N4OM=
