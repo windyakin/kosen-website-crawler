@@ -34,6 +34,9 @@ logger.level = 'debug';
       await page.screenshot({ path: filePath, fullPage: true });
     } catch (e) {
       logger.error(e);
+      if (process.env.NODE_ENV === 'test') {
+        process.exit(1);
+      }
       return;
     }
     logger.info(`Saved! ${filePath}`);
