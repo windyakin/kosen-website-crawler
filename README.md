@@ -14,8 +14,16 @@
 
 * [windyakin/kosen-website-crawler](https://hub.docker.com/r/windyakin/kosen-website-crawler/) 
 
+#### Run
+
 ```
-docker-compose up -d
+make
+```
+
+#### Build Docker image by yourself
+
+```
+make build
 ```
 
 ### Running on local machine
