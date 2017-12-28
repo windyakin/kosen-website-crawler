@@ -18,15 +18,16 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 before_script:
-  - docker-compose -f docker-compose.test.yml build --pull crawler
-  - docker-compose -f docker-compose.test.yml pull otonokizaka uranohoshi
-  - docker-compose -f docker-compose.test.yml up -d otonokizaka uranohoshi
+  - cd test/integrations
+  - docker-compose -f docker-compose.yml build --pull crawler
+  - docker-compose -f docker-compose.yml pull otonokizaka uranohoshi
+  - docker-compose -f docker-compose.yml up -d otonokizaka uranohoshi
 
 script:
-  - docker-compose -f docker-compose.test.yml run crawler
+  - docker-compose -f docker-compose.yml run crawler
 
 after_script:
-  - docker-compose -f docker-compose.test.yml down
+  - docker-compose -f docker-compose.yml down
 
 notifications:
   slack:

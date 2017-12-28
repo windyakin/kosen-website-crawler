@@ -11,11 +11,13 @@
   "dependencies": {
     "async-file": "^2.0.2",
     "bluebird": "^3.5.0",
-    "eslint": "^4.5.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.7.0",
     "log4js": "^2.3.3",
     "moment": "^2.18.1",
     "puppeteer": "^0.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.7.0"
   }
 }

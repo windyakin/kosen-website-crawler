@@ -3,11 +3,10 @@ version: '3'
 services:
   crawler:
     image: windyakin/kosen-website-crawler:latest
-    build: .
+    build: ../../
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./fake_content/websites.json:/usr/src/app/websites.json:ro
-      - ./screenshots:/usr/src/app/screenshots
+      - ./websites.json:/usr/src/app/websites.json:ro
     environment:
       - TZ=Asia/Tokyo
       - NODE_ENV=test

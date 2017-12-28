@@ -1,3 +1,12 @@
+.git/
 node_modules/
+.gitignore
+docker-compose.*yml
+Dockerfile
 screenshots/*
 !screenshots/.keep
+test/
+.eslintrc.json
+.travis.yml
+run.sh
+Makefile
