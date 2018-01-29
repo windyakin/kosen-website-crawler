@@ -10,6 +10,9 @@ ps:
 build:
 	docker-compose $(COMPOSE_FILES_ON_COMMAND_LINE) build
 
+pull:
+	docker-compose $(COMPOSE_FILES_ON_COMMAND_LINE) pull
+
 run:
 	docker-compose $(COMPOSE_FILES_ON_COMMAND_LINE) up
 
