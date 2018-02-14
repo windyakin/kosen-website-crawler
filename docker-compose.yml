@@ -4,9 +4,6 @@ services:
   crawler:
     image: windyakin/kosen-website-crawler:latest
     build: .
-    volumes:
-      # NOTE: macOS の /etc/localtime はマウントしてもタイムゾーンを変更できない
-      - /etc/localtime:/etc/localtime:ro
     environment:
       - TZ=Asia/Tokyo
     shm_size: 256m
