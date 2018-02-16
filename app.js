@@ -10,6 +10,11 @@ const Devices = require('./devices');
 const logger = Log4js.getLogger();
 logger.level = 'debug';
 
+const errorCatcher = (err) => {
+  logger.error(err);
+  if (process.env.NODE_ENV === 'test') process.exit(1);
+};
+
 (async () => {
   logger.debug('Loading websites.json...');
   const websites = JSON.parse(await File.readFile('websites.json'));
@@ -34,16 +39,13 @@ logger.level = 'debug';
         await page.goto(website.url);
         await page.screenshot({ path: filePath, fullPage: true });
       } catch (e) {
-        logger.error(e);
-        if (process.env.NODE_ENV === 'test') {
-          process.exit(1);
-        }
-        return;
+        errorCatcher(e);
+      } finally {
+        await page.close();
       }
-      await page.close();
       logger.info(`Saved! ${filePath}`);
-    });
-  });
+    }).catch(e => errorCatcher(e));
+  }).catch(e => errorCatcher(e));
 
   browser.close();
 })();
