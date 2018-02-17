@@ -21,4 +21,4 @@ copy:
 down:
 	docker-compose $(COMPOSE_FILES_ON_COMMAND_LINE) down
 
-.PHONY: all ps build run copy down
+.PHONY: all ps build pull run copy down
