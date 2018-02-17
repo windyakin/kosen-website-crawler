@@ -19,13 +19,10 @@ logger.level = 'debug';
   const puppeteerParam = (os.platform() === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : []);
 
   const browser = await Puppeteer.launch({ args: puppeteerParam });
-  const page = await browser.newPage();
-  page.setViewport({ width: 1280, height: 720 });
 
-  await new Promise(resolve => resolve(
-    websites,
-    Array.from(Array(websites.length).keys()),
-  )).each(async (website, index) => {
+  await Promise.each(websites, async (website, index) => {
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1280, height: 720 });
     const fileIndex = (index + 1).toString().padStart(2, '0');
     const filePath = `${folderName}/${fileIndex}_${website.name}.png`;
     logger.info(`Get ${website.name} (${website.url}) ...`);
@@ -39,6 +36,7 @@ logger.level = 'debug';
       }
       return;
     }
+    await page.close();
     logger.info(`Saved! ${filePath}`);
   });
 
