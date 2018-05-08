@@ -31,6 +31,10 @@ const errorCatcher = (err) => {
   await Promise.each(websites, async (website, index) => {
     await Promise.each(devices, async ([deviceName, emulateOptions]) => {
       const page = await browser.newPage();
+      // NOTE: 長野高専のスマートフォンページの遷移でダイアログが出るので対応する
+      page.on('dialog', async (dialog) => {
+        if (dialog.message() === 'スマートフォン用サイトを表示しますか？') await dialog.accept();
+      });
       await page.emulate(emulateOptions);
       const fileIndex = (index + 1).toString().padStart(2, '0');
       const filePath = `${folderName}/${fileIndex}_${website.name}_${deviceName}.png`;
