@@ -40,7 +40,7 @@ const errorCatcher = (err) => {
       const filePath = `${folderName}/${fileIndex}_${website.name}_${deviceName}.png`;
       logger.info(`Get ${website.name}(${deviceName.toUpperCase()}) [${website.url}] ...`);
       try {
-        await page.goto(website.url);
+        await page.goto(website.url, { waituntil: 'networkidle0' });
         await page.screenshot({ path: filePath, fullPage: true });
       } catch (e) {
         errorCatcher(e);
