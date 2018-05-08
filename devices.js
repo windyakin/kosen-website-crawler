@@ -1,6 +1,6 @@
 module.exports = {
   sp: {
-    userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
+    userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit (KHTML, like Gecko) Chrome Mobile Safari (compatible; SugoiKosenCrawler/1.0; sugoi@napple.team)',
     viewport: {
       width: 414,
       height: 736,
@@ -11,7 +11,7 @@ module.exports = {
     },
   },
   pc: {
-    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36',
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36 (compatible; SugoiKosenCrawler/1.0; sugoi@napple.team)',
     viewport: {
       width: 1366,
       height: 768,
