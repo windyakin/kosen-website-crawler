@@ -16,23 +16,23 @@
 
 #### Run
 
-```
+```shell
 make
 ```
 
 #### Build Docker image by yourself
 
-```
+```shell
 make build
 ```
 
 ### Running on local machine
 
-required node version >= 7.10.0
+required node version >= 8
 
-```
-yarn install
-yarn start
+```shell
+npm install
+npm start
 ```
 
 ## Tips
