@@ -11,7 +11,7 @@
   "dependencies": {
     "async-file": "^2.0.2",
     "bluebird": "^3.5.1",
-    "log4js": "^2.4.1",
+    "log4js": "^3.0.0",
     "moment": "^2.20.1",
     "puppeteer": "^1.0.0"
   },
