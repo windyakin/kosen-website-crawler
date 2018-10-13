@@ -10,14 +10,14 @@
   "license": "MIT",
   "dependencies": {
     "async-file": "^2.0.2",
-    "bluebird": "^3.5.1",
+    "bluebird": "^3.5.2",
     "log4js": "^3.0.0",
-    "moment": "^2.20.1",
-    "puppeteer": "^1.0.0"
+    "moment": "^2.22.2",
+    "puppeteer": "^1.9.0"
   },
   "devDependencies": {
-    "eslint": "^5.0.0",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
