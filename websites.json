@@ -149,7 +149,7 @@
   },
   {
     "name": "阿南高専",
-    "url": "http://www.anan-nct.ac.jp/"
+    "url": "https://www.anan-nct.ac.jp/"
   },
   {
     "name": "香川高専",
@@ -226,5 +226,9 @@
   {
     "name": "神戸高専",
     "url": "http://www.kobe-kosen.ac.jp/"
+  },
+  {
+    "name": "産技高専",
+    "url": "https://www.metro-cit.ac.jp/"
   }
 ]
