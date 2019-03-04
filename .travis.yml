@@ -6,7 +6,7 @@ services:
   - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.17.1
+  - DOCKER_COMPOSE_VERSION=1.23.2
 
 before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -27,7 +27,7 @@ script:
   - docker-compose -f docker-compose.yml run crawler
 
 after_script:
-  - docker-compose -f docker-compose.yml down
+  - docker-compose -f docker-compose.yml down --volume
 
 notifications:
   slack:
