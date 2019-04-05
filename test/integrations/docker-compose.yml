@@ -1,21 +1,24 @@
 version: '3'
 
+volumes:
+  screenshots: {}
+
 services:
   crawler:
     image: windyakin/kosen-website-crawler:latest
     build: ../../
     volumes:
-      - /etc/localtime:/etc/localtime:ro
       - ./websites.json:/usr/src/app/websites.json:ro
+      - screenshots:/usr/src/app/screenshots
     environment:
       - TZ=Asia/Tokyo
       - NODE_ENV=test
     shm_size: 256m
   otonokizaka:
-    image: nginx:latest
+    image: nginx:alpine
     volumes:
       - ./fake_content/otonokizaka:/usr/share/nginx/html:ro
   uranohoshi:
-    image: nginx:latest
+    image: nginx:alpine
     volumes:
       - ./fake_content/uranohoshi:/usr/share/nginx/html:ro
