@@ -12,7 +12,7 @@
   "dependencies": {
     "async-file": "^2.0.2",
     "bluebird": "^3.5.5",
-    "del": "^4.1.1",
+    "del": "^5.0.0",
     "log4js": "^4.3.1",
     "moment": "^2.24.0",
     "puppeteer": "^1.17.0"
