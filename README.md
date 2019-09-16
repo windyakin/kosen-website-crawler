@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/windyakin/kosen-website-crawler.svg?branch=master)](https://travis-ci.org/windyakin/kosen-website-crawler)
 [![dependencies Status](https://david-dm.org/windyakin/kosen-website-crawler/status.svg)](https://david-dm.org/windyakin/kosen-website-crawler)
-[![Greenkeeper badge](https://badges.greenkeeper.io/windyakin/kosen-website-crawler.svg)](https://greenkeeper.io/)
 
 高専のウェブサイトをクロールしてスクリーンショットを保存します。
 
