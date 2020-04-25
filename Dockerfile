@@ -1,4 +1,4 @@
-FROM node:10-slim
+FROM node:12-slim
 
 # Install Font
 RUN mkdir /noto \
@@ -8,6 +8,7 @@ RUN mkdir /noto \
     unzip \
     fontconfig \
     ca-certificates \
+    wget \
   && wget -q -O /noto/noto.zip https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
   && unzip -d /noto/fonts /noto/noto.zip \
   && mkdir -p /usr/share/fonts/noto \
@@ -19,6 +20,7 @@ RUN mkdir /noto \
     unzip \
     fontconfig \
     ca-certificates \
+    wget \
   && apt-get autoremove -y \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
