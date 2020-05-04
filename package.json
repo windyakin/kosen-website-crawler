@@ -14,7 +14,7 @@
     "bluebird": "^3.5.5",
     "del": "^5.1.0",
     "log4js": "^5.1.0",
-    "moment": "^2.24.0",
+    "moment": "^2.25.3",
     "puppeteer": "^1.20.0"
   },
   "devDependencies": {
