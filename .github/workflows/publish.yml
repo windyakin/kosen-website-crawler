@@ -1,0 +1,24 @@
+name: Publish image to Docker Hub
+
+on:
+  push:
+    branches:
+      # - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build the Docker Image
+        run: docker build --pull --no-cache . -f Dockerfile --tag windyakin/kosen-website-crawler:latest
+
+      - name: Login to the Docker Hub
+        env:
+          DOCKER_USERNAME: windyakin
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
+
+      - name: Publish to Docker Hub
+        run: docker push windyakin/kosen-website-crawler:latest
