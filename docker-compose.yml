@@ -6,4 +6,4 @@ services:
     build: .
     environment:
       - TZ=Asia/Tokyo
-    shm_size: 512m
+    shm_size: 1g
