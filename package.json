@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "screenshot-sort": "node tools/screenshot-sort.js"
+    "screenshot-sort": "node tools/screenshot-sort.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "author": "windyakin",
   "license": "MIT",
@@ -14,12 +16,11 @@
     "bluebird": "^3.7.2",
     "del": "^5.1.0",
     "log4js": "^6.3.0",
-    "moment": "^2.26.0",
-    "puppeteer": "^3.1.0"
+    "moment": "^2.29.1",
+    "puppeteer": "^3.3.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.21.2"
+    "eslint": "^7.21.0",
+    "eslint-plugin-node": "^11.1.0"
   }
 }
