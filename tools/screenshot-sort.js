@@ -27,10 +27,10 @@ logger.level = 'debug';
   await Promise.each(versions, async (version) => {
     const files = (await (File.readdir(`${screenshotsDir}/${version}`))).filter(name => !name.match(/^\./));
     await Promise.each(files, async (file) => {
-      const d = file.split(/[_|\.]/);
+      const d = file.split(/[_|.]/);
       const id = d[0];
       const index = parseInt(id, 10) - 1;
-      const kosenName = d[1];
+      // const kosenName = d[1];
       const device = d.length === 4 ? d[2] : 'pc';
       await File.createReadStream(`${screenshotsDir}/${version}/${file}`).pipe(File.createWriteStream(`${sortedDir}/${kosenWithIndex[index]}/${device}/${version}.png`));
     });
