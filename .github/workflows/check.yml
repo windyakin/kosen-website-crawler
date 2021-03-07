@@ -1,0 +1,55 @@
+name: check
+
+on:
+  schedule:
+    - cron: '0 10 15 * *'
+
+jobs:
+  websites:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check websites.json URLs
+        run: |
+         cat "${GITHUB_WORKSPACE}/websites.json" | \
+         jq --raw-output ".[].url" | \
+         xargs -I _URL_ curl -s -L -o /dev/null --write-out "_URL_ %{url_effective} %{http_code}\n" _URL_ | \
+         awk 'BEGIN { OFS="|" } ($1 != $2 || $3 != 200) { print $1,$2,$3 }' > "${GITHUB_WORKSPACE}/failed_list.md"
+
+      - name: Check failed list file
+        id: check_failed_list_file
+        run: |
+          echo "::set-output name=is_empty::$(test -s failed_list.md; echo $?)"
+
+      - name: Craete issue format
+        if: ${{ steps.check_failed_list_file.output.is_empty == 0 }}
+        run: |
+          cat << EOF > "${GITHUB_WORKSPACE}/issue.md"
+          websites.json のURLから移転、またはHTTPステータスコードのおかしいウェブサイトを発見しました。
+
+          現行URL|移転先URL|Status
+          ---|---|---
+          $(cat ${GITHUB_WORKSPACE}/failed_list.md)
+
+          ---
+          この Issue は GitHub Actions で作成されました
+          EOF
+
+      - name: Get date
+        if: ${{ steps.check_failed_list_file.outputs.is_empty == 0 }}
+        id: date
+        run: echo "::set-output name=text::$(date +'%Y年%m月')"
+
+      - name: Create issue
+        if: ${{ steps.check_failed_list_file.outputs.is_empty == 0 }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            const fs = require('fs').promises;
+            await github.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '${{ steps.date.outputs.text }} websites.json チェック',
+              body: (await (fs.readFile(`${ process.env.GITHUB_WORKSPACE }/issue.md`, 'utf-8')))
+            })
