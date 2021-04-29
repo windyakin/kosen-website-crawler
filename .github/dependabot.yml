@@ -6,25 +6,3 @@ updates:
     interval: daily
     time: "20:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: puppeteer
-    versions:
-    - 5.5.0
-    - 6.0.0
-    - 7.0.0
-    - 7.0.1
-    - 7.0.4
-    - 7.1.0
-  - dependency-name: bl
-    versions:
-    - 4.0.4
-    - 4.1.0
-  - dependency-name: moment
-    versions:
-    - 2.29.1
-  - dependency-name: eslint-plugin-import
-    versions:
-    - 2.22.1
-  - dependency-name: eslint-config-airbnb-base
-    versions:
-    - 14.2.0
