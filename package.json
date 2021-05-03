@@ -17,7 +17,7 @@
     "del": "^6.0.0",
     "log4js": "^6.3.0",
     "moment": "^2.29.1",
-    "puppeteer": "^8.0.0"
+    "puppeteer": "^9.1.0"
   },
   "devDependencies": {
     "eslint": "^7.25.0",
