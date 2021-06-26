@@ -1,0 +1,33 @@
+name: fake
+
+on:
+  push: {}
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - run: docker pull ghcr.io/windyakin/kosen-website-crawler:latest
+
+      - name: Run script
+        run: |
+          docker run --rm \
+            -v ${GITHUB_WORKSPACE}/test/integrations/websites.json:/usr/src/app/websites.json:ro \
+            -v ${GITHUB_WORKSPACE}/screenshots:/usr/src/app/screenshots \
+            --network ${{ job.container.network }} \
+            ghcr.io/windyakin/kosen-website-crawler:latest
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: ${{ github.workspace }}/screenshots
+
+    services:
+      otonokizaka:
+        image: ghcr.io/windyakin/kosen-website-crawler/fake_content:latest
+        options: --health-cmd "test -s /var/run/nginx.pid || exit 1"
+      uranohoshi:
+        image: ghcr.io/windyakin/kosen-website-crawler/fake_content:latest
+        options: --health-cmd "test -s /var/run/nginx.pid || exit 1"
