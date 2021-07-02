@@ -3,7 +3,7 @@ const File = require('async-file');
 const os = require('os');
 const Log4js = require('log4js');
 const Puppeteer = require('puppeteer');
-const moment = require('moment');
+const dayjs = require('dayjs');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 
 const Devices = require('./devices');
@@ -21,7 +21,7 @@ const errorCatcher = (err) => {
   const websites = JSON.parse(await File.readFile('websites.json'));
   logger.debug(`Loaded ${websites.length} web sites setting.`);
 
-  const folderName = `${moment().format('YYYYMMDDHHmmss')}`;
+  const folderName = `${dayjs().format('YYYYMMDDHHmmss')}`;
 
   const s3client = new S3Client({ region: process.env.AWS_S3_BUCKET_REGION });
 
