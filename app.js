@@ -3,7 +3,9 @@ const File = require('async-file');
 const os = require('os');
 const Log4js = require('log4js');
 const Puppeteer = require('puppeteer');
-const moment = require('moment');
+const dayjs = require('dayjs');
+const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+const fs = require('fs').promises
 
 const Devices = require('./devices');
 
@@ -20,8 +22,14 @@ const errorCatcher = (err) => {
   const websites = JSON.parse(await File.readFile('websites.json'));
   logger.debug(`Loaded ${websites.length} web sites setting.`);
 
-  const folderName = `screenshots/${moment().format('YYYYMMDDHHmmss')}`;
-  await File.mkdir(folderName);
+  const folderName = `${dayjs().format('YYYYMMDDHHmmss')}`;
+
+  let s3client = undefined
+  if (process.env.S3) {
+    s3client = new S3Client({ region: process.env.AWS_S3_BUCKET_REGION });
+  } else {
+    await fs.mkdir(`screenshots/${folderName}`);
+  }
 
   const puppeteerParam = (os.platform() === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : []);
 
@@ -41,7 +49,16 @@ const errorCatcher = (err) => {
       logger.info(`Get ${website.name}(${deviceName.toUpperCase()}) [${website.url}] ...`);
       try {
         await page.goto(website.url, { waituntil: 'networkidle0' });
-        await page.screenshot({ path: filePath, fullPage: true });
+        const screenshotBuffer = await page.screenshot({ type: 'png', fullPage: true });
+        if (process.env.S3) {
+          await s3client.send(new PutObjectCommand({
+            Bucket: process.env.AWS_S3_BUCKET_NAME,
+            Key: filePath,
+            Body: screenshotBuffer
+          }));
+        } else {
+          await fs.writeFile(`screenshots/${filePath}`, screenshotBuffer);
+        }
       } catch (e) {
         errorCatcher(e);
       } finally {

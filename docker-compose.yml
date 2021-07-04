@@ -6,4 +6,9 @@ services:
     build: .
     environment:
       - TZ=Asia/Tokyo
+      - S3
+      - AWS_S3_BUCKET_REGION
+      - AWS_S3_BUCKET_NAME
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
     shm_size: 1g
