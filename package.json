@@ -12,7 +12,7 @@
   "author": "windyakin",
   "license": "MIT",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.43.0",
+    "@aws-sdk/client-s3": "^3.47.0",
     "async-file": "^2.0.2",
     "bluebird": "^3.7.2",
     "dayjs": "^1.10.7",
