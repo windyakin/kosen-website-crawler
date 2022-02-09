@@ -1,4 +1,4 @@
-FROM node:14-slim
+FROM node:17-slim
 
 # Install Font
 RUN mkdir /noto \
