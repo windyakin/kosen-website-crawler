@@ -31,9 +31,13 @@ const errorCatcher = (err) => {
     await fs.mkdir(`screenshots/${folderName}`);
   }
 
-  const puppeteerParam = (os.platform() === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : []);
-
-  const browser = await Puppeteer.launch({ args: puppeteerParam });
+  const options = {
+    args: (os.platform() === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : [])
+  };
+  if (process.env.CHROME_EXECUTE_PATH) {
+    options.executablePath = process.env.CHROME_EXECUTE_PATH;
+  }
+  const browser = await Puppeteer.launch(options);
   const devices = Object.entries(Devices);
 
   await Promise.each(websites, async (website, index) => {
