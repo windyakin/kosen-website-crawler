@@ -18,7 +18,7 @@
     "dayjs": "^1.11.0",
     "del": "^6.0.0",
     "log4js": "^6.4.3",
-    "puppeteer": "^13.5.2"
+    "puppeteer": "^13.6.0"
   },
   "devDependencies": {
     "eslint": "8.11.0",
