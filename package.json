@@ -12,16 +12,16 @@
   "author": "windyakin",
   "license": "MIT",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.58.0",
+    "@aws-sdk/client-s3": "^3.76.0",
     "async-file": "^2.0.2",
     "bluebird": "^3.7.2",
-    "dayjs": "^1.11.0",
+    "dayjs": "^1.11.1",
     "del": "^6.0.0",
-    "log4js": "^6.4.3",
-    "puppeteer": "^13.5.2"
+    "log4js": "^6.4.5",
+    "puppeteer": "^13.6.0"
   },
   "devDependencies": {
-    "eslint": "8.11.0",
+    "eslint": "8.14.0",
     "eslint-plugin-node": "^11.1.0"
   },
   "engines": {
