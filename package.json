@@ -17,7 +17,7 @@
     "bluebird": "^3.7.2",
     "dayjs": "^1.11.2",
     "del": "^6.1.0",
-    "log4js": "^6.4.7",
+    "log4js": "^6.5.2",
     "puppeteer": "^14.1.0"
   },
   "devDependencies": {
