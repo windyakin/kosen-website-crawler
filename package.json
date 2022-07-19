@@ -15,7 +15,7 @@
     "@aws-sdk/client-s3": "^3.92.0",
     "async-file": "^2.0.2",
     "bluebird": "^3.7.2",
-    "dayjs": "^1.11.2",
+    "dayjs": "^1.11.4",
     "del": "^6.1.0",
     "log4js": "^6.4.7",
     "puppeteer": "^14.1.0"
