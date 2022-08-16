@@ -43,11 +43,11 @@ jobs:
 
       - name: Create issue
         if: ${{ steps.check_failed_list_file.outputs.is_empty == 0 }}
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             const fs = require('fs').promises;
-            await github.issues.create({
+            await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: '${{ steps.date.outputs.text }} websites.json チェック',
