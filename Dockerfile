@@ -1,4 +1,4 @@
-FROM node:16-slim
+FROM node:20-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
 
@@ -11,13 +11,8 @@ RUN mkdir /noto \
     fontconfig \
     ca-certificates \
     curl \
-  && curl -sL -o /noto/noto.zip https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
-  && unzip -d /noto/fonts /noto/noto.zip \
-  && mkdir -p /usr/share/fonts/noto \
-  && cp /noto/fonts/*.otf /usr/share/fonts/noto \
-  && chmod 644 -R /usr/share/fonts/noto/ \
+    fonts-noto-cjk \
   && fc-cache -fv \
-  && rm -rf /noto \
   && apt-get --force-yes remove -y --purge \
     unzip \
     fontconfig \
