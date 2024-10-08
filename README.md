@@ -1,15 +1,10 @@
 # Kosen Website Crawler
 
-[![Build Status](https://travis-ci.org/windyakin/kosen-website-crawler.svg?branch=master)](https://travis-ci.org/windyakin/kosen-website-crawler)
-[![dependencies Status](https://david-dm.org/windyakin/kosen-website-crawler/status.svg)](https://david-dm.org/windyakin/kosen-website-crawler)
-
 高専のウェブサイトをクロールしてスクリーンショットを保存します。
 
 ## Getting started
 
 ### Now available on Docker Hub! 🐳
-
-[![Docker Images](https://images.microbadger.com/badges/image/windyakin/kosen-website-crawler.svg)](https://hub.docker.com/r/windyakin/kosen-website-crawler/)
 
 * [windyakin/kosen-website-crawler](https://hub.docker.com/r/windyakin/kosen-website-crawler/) 
 
