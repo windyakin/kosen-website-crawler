@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM node:24-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
@@ -28,7 +28,7 @@ WORKDIR /usr/src/app
 COPY --chown=pptruser:pptruser package.json .
 COPY --chown=pptruser:pptruser package-lock.json .
 
-RUN npm install --production
+RUN npm ci --omit=dev
 
 COPY --chown=pptruser:pptruser . .
 
