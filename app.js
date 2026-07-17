@@ -52,7 +52,7 @@ const errorCatcher = (err) => {
       const filePath = `${folderName}/${fileIndex}_${website.name}_${deviceName}.png`;
       logger.info(`Get ${website.name}(${deviceName.toUpperCase()}) [${website.url}] ...`);
       try {
-        await page.goto(website.url, { waituntil: 'networkidle0' });
+        await page.goto(website.url, { waitUntil: 'networkidle0' });
         const screenshotBuffer = await page.screenshot({ type: 'png', fullPage: true });
         if (process.env.S3) {
           await s3client.send(new PutObjectCommand({
@@ -63,14 +63,14 @@ const errorCatcher = (err) => {
         } else {
           await fs.writeFile(`screenshots/${filePath}`, screenshotBuffer);
         }
+        logger.info(`Saved! ${filePath}`);
       } catch (e) {
         errorCatcher(e);
       } finally {
         await page.close();
       }
-      logger.info(`Saved! ${filePath}`);
     }).catch(e => errorCatcher(e));
   }).catch(e => errorCatcher(e));
 
-  browser.close();
+  await browser.close();
 })();
