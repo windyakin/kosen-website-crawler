@@ -72,5 +72,5 @@ const errorCatcher = (err) => {
     }).catch(e => errorCatcher(e));
   }).catch(e => errorCatcher(e));
 
-  browser.close();
+  await browser.close();
 })();
