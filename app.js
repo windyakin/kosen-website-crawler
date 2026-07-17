@@ -63,12 +63,12 @@ const errorCatcher = (err) => {
         } else {
           await fs.writeFile(`screenshots/${filePath}`, screenshotBuffer);
         }
+        logger.info(`Saved! ${filePath}`);
       } catch (e) {
         errorCatcher(e);
       } finally {
         await page.close();
       }
-      logger.info(`Saved! ${filePath}`);
     }).catch(e => errorCatcher(e));
   }).catch(e => errorCatcher(e));
 
