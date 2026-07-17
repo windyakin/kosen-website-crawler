@@ -1,28 +1,14 @@
 FROM node:20-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
-
-# Install Font
-RUN mkdir /noto \
-  && apt-get update \
-  && apt-get install -y --no-install-recommends \
-    udev \
-    unzip \
-    fontconfig \
-    ca-certificates \
-    curl \
-    fonts-noto-cjk \
-  && fc-cache -fv \
-  && apt-get --force-yes remove -y --purge \
-    unzip \
-    fontconfig \
-  && apt-get autoremove -y \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
+    udev \
+    fontconfig \
+    ca-certificates \
+    fonts-noto-cjk \
     chromium \
+  && fc-cache -fv \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
