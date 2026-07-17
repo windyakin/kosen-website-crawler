@@ -13,6 +13,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+  PUPPETEER_SKIP_DOWNLOAD=true \
   CHROME_EXECUTE_PATH=/usr/bin/chromium
 
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
