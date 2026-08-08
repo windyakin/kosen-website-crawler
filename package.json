@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "eslint": "9.39.4",
-    "eslint-plugin-n": "17.24.0"
+    "eslint-plugin-n": "18.3.0"
   },
   "engines": {
     "node": ">=12.0.0"
